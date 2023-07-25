@@ -4,7 +4,6 @@ body {
 .body1 {
   height: 100vh;
   width: 100vw;
-  display: flex;
 }
 
 .title {
@@ -15,6 +14,8 @@ body {
   font-family: "Impact";
   color: aliceblue;
   font-size: 30px;
+  position: fixed;
+  animation: fadeIn 3s ease 1s 1 normal backwards;
 }
 
 .menu-btn {
@@ -38,7 +39,7 @@ body {
   height: 4px;
   width: 30px;
   border-radius: 4px;
-  background-color: #58c9f4;
+  background-color: #ffffff;
   position: absolute;
 }
 .menu-btn span:before {
@@ -70,9 +71,10 @@ body {
   position: fixed;
   top: 0;
   left: 100%; /*leftの値を変更してメニューを画面外へ*/
-  z-index: 80;
+  z-index: 100000;
   background-color: #ffffff;
   transition: all 1s;
+  padding-left: 20px;
 }
 .menu-content ul {
   padding: 70px 10px 0;
@@ -84,7 +86,7 @@ body {
 .menu-content ul li a {
   display: block;
   width: 100%;
-  font-size: 15px;
+  font-size: 30px;
   box-sizing: border-box;
   color: #58c9f4;
   text-decoration: none;
@@ -107,11 +109,46 @@ body {
   left: 60%;
 }
 
+.login {
+  margin-top: 420px;
+  color: #58c9f4;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 40px;
+  border: solid 1px #58c9f4;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  width: 200px;
+  height: 50px;
+}
+.login::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #58c9f4;
+  transform: translateX(-100%);
+  transition: transform 0.4s;
+  z-index: -1;
+  opacity: 0.7;
+}
+.login:hover::before {
+  transform: translateX(0);
+}
+.login:hover {
+  color: #ffffff;
+  cursor: pointer;
+}
+
 .woman {
   z-index: 1000;
-  margin: 30px auto;
-  padding-right: 60px;
-  height: 100%;
+  margin-top: -840px;
+  margin-left: 20%;
+  height: 900px;
   pointer-events: none;
   position: relative;
   animation: fadeIn 3s ease 1s 1 normal backwards;
@@ -130,37 +167,50 @@ body {
 
 .body2 {
   width: 100vw;
-  height: 120vh;
+  height: 640px;
   margin-top: 300px;
+  display: flex;
 }
 
-.border {
-  height: 3px;
-  color: #ffffff;
-}
-
-.clothes1 {
+.clothes {
   display: flex;
   margin-top: -60px;
+  flex-wrap: wrap;
+  width: 700px;
 }
 
-.clothes1 > img {
-  width: 280px;
+.clothes > img {
+  width: 200px;
+  height: 360px;
   pointer-events: none;
-}
-
-.main {
-  display: flex;
 }
 
 .person {
-  width: 260px;
+  width: 240px;
+  height: 630px;
   pointer-events: none;
-  margin-top: -30px;
-  margin-left: 520px;
+  margin-left: 30px;
 }
 
 .weatherforecast {
   background-color: aliceblue;
-  width: 400px;
+  width: 300px;
+  height: 600px;
+  text-align: center;
+  font-size: 30px;
+  margin-left: 180px;
+  font-weight: bold;
+  padding-top: 20px;
+}
+
+.high_low_temperature {
+  display: flex;
+  gap: 5px;
+  margin-left: 46px;
+  font-size: 24px;
+}
+
+.temperature {
+  font-size: 100px;
+  margin-left: 30px;
 }
